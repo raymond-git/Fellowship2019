@@ -1,6 +1,8 @@
 <%- contentFor('title') %>Home
 <%- contentFor('body') %>
 
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
      
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,8 +27,12 @@
    </nav>
      
 
-  
-     
+  <ul>
+
+       <% for(let record of records) { %>
+            <li><%=(record.full_text)%></li>
+       <% } %>
+  </ul>
        <div align="center">
        <h1>Raymond Huang</h1> 
        </div>
@@ -57,15 +63,35 @@
     </form>
 
 
-  
+    <form> 
+         Please click me and you'll be surprised:<br>
+        <button id= "button1">Click me to see results</button>  
+   </form>
+
+    <script> 
+        
+          $("#button1").click(function(e) {   //Creating a click function
+            e.preventDefault()  //This method prevent the link from going to another pop up url page
+            $.ajax({ //Allow web pages to be updated asynchronously by exchanging small amounts of data with the server behind the scene.
+              type: "GET",
+              url: "https://sv443.net/jokeapi/category/programming",
+              success: function(data){
+                  
+                  if (data.joke) {
+                   alert(data.joke)
+                  }
+              },
+              error: function(data){
+                alert("This is an error")
+              }
+            })
+          }) 
+        
+
+    </script>
+
+
     
 
 
-
-         
-        
-
-      
- 
-
-
+    
