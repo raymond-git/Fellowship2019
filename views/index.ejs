@@ -30,7 +30,7 @@
   <ul>
 
        <% for(let record of records) { %>
-            <li><%=(record.full_text)%></li>
+            <li><a href="/posts?id=<%= record.id%>"><%= record.from %> :-) <%=(record.full_text)%></a></li>
        <% } %>
   </ul>
        <div align="center">
