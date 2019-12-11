@@ -47,4 +47,38 @@ router.get('/posts' , function(req, res, next){
       });
 });
 
+
+router.get('/form', function(req, res, next){
+  res.render('form');
+});
+
+//We using router.post because we are sending the data, we are submitting data in the form
+router.post('/form', function(req, res, next){ 
+    models.Post.create({
+    
+    title: req.body.title,
+    full_text: req.body.full_text,
+    from: req.body.from,
+    media_url: req.body.media_url,
+
+   }).then(function(record){
+      res.redirect(`/posts?id=${record.id}`)
+  });
+
+});
+
+
+  //res.render('form', {
+    //req.body.title is requesting the body from the /form link page(*HTML)
+     //   title: req.body.title, 
+     //   from: req.body.from,
+     //   full_text: req.body.full_text,
+     //   media_url: req.body.media_url,
+  
+
+
+
+
+
+
 module.exports = router;
