@@ -1,0 +1,13 @@
+<%- contentFor('title') %> View Post
+<%- contentFor('body') %>
+<h1><%= record.title %></h1>
+<p>From: <%= record.from %></p>
+
+ 
+
+ <label for="full_text">Full Text:</label><br>
+ <textarea name="full_text" rows="5" cols="30" value="<%=record.full_text%>"> <%= record.full_text %></textarea><br> 
+ 
+
+
+

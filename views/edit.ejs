@@ -1,0 +1,17 @@
+
+<%- contentFor('title') %> Database Form
+<%- contentFor('body') %>
+
+<h1>Edit Page</h1>
+
+    <!--/form is from the post database which is index.js-->
+    <form method="post" action="/edit">
+        <label for="from">From:</label><br/>
+        <input type="text" id="from" name="from" required><br/>
+        <label for="title">Title:</label><br/>
+        <input type="text" id="title" name="title" required><br/>
+        <label for="full_text">Fill text:</label><br/>
+        <textarea name="full_text" rows="8" cols="80"></textarea><br/>
+        <button type="Submit">Edit</button>
+    </form>
+

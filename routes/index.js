@@ -23,7 +23,7 @@ router.get('/school', function(req, res, next) {
 router.post('/school2', function(req, res, next) {
      console.log(req.body);
      res.render('school', {name: req.body.name, 
-                        lastname: req.body.lastname});
+                           lastname: req.body.lastname});
 
 });
 
@@ -59,13 +59,30 @@ router.post('/form', function(req, res, next){
     title: req.body.title,
     full_text: req.body.full_text,
     from: req.body.from,
-    media_url: req.body.media_url,
 
    }).then(function(record){
       res.redirect(`/posts?id=${record.id}`)
   });
 
 });
+
+
+
+router.post('/edit', function(req, res, next){ 
+  models.Post.create({
+  
+  title: req.body.title,
+  from: req.body.from,
+  full_text: req.body.full_text,
+  
+ }).then(function(record){
+    res.redirect(`/posts?id=${record.id}`)
+});
+
+});
+
+
+
 
 
   //res.render('form', {
