@@ -8,7 +8,7 @@
 
 
 <% for(let record of records) {%>
-<li><a href="posts?id=<%= record.id%>"><%= record.from %> :-) <%=record.title%></a></li>
+<li><a href="/todo/<%= record.id %>"><%= record.from %> :-) <%=record.title%></a><br></li>
 <% } %>
 
 }
